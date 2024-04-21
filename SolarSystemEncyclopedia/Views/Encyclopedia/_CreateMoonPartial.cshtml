@@ -1,0 +1,97 @@
+﻿@model SolarSystemEncyclopedia.Models.Moon
+
+<div style="margin-top: 2%; margin-bottom: 2%;">
+    <div class="container-fluid col-md-10 m-auto">
+        <div class="row container-fluid d-flex align-items-center justify-content-center">
+            <div class="col-md-6 blue-div smooth-bg">
+                <h1>Create moon</h1>
+                <form asp-controller="Encyclopedia" asp-action="CreateMoon" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @Html.AntiForgeryToken()
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control main-inputs" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control main-inputs" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Mass" class="control-label"></label>
+                        <input asp-for="Mass" class="form-control main-inputs" />
+                        <span asp-validation-for="Mass" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Volume" class="control-label"></label>
+                        <input asp-for="Volume" class="form-control main-inputs" />
+                        <span asp-validation-for="Volume" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="SurfaceArea" class="control-label"></label>
+                        <input asp-for="SurfaceArea" class="form-control main-inputs" />
+                        <span asp-validation-for="SurfaceArea" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="Radius" class="control-label"></label>
+                        <input asp-for="Radius" class="form-control main-inputs" />
+                        <span asp-validation-for="Radius" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="StringDensity" class="control-label"></label>
+                        <input asp-for="StringDensity" class="form-control main-inputs" />
+                        <span asp-validation-for="StringDensity" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="form-check">
+                            <input asp-for="HasAtmosphere" class="form-check-input main-checkbox" />
+                            <label class="form-check-label" for="HasAtmosphere">Has Atmosphere</label>
+                        </div>
+                        <span asp-validation-for="HasAtmosphere" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="AtmosphericPressure" class="control-label"></label>
+                        <input asp-for="AtmosphericPressure" class="form-control main-inputs" />
+                        <span asp-validation-for="AtmosphericPressure" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="AverageTemperature" class="control-label"></label>
+                        <input asp-for="AverageTemperature" class="form-control main-inputs" />
+                        <span asp-validation-for="AverageTemperature" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="MainPlanetId" class="control-label">Main Star</label>
+                        <select asp-for="MainPlanetId" class="form-control main-inputs">
+                            @foreach (var planet in ViewBag.Planets)
+                            {
+                                <option value="@planet.Id">@planet.Name</option>
+                            }
+                        </select>
+                        <span asp-validation-for="MainPlanetId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label">Main Image</label>
+                        <input type="file" name="MainImage" accept=".jpg, .jpeg, .png" />
+                        <span class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

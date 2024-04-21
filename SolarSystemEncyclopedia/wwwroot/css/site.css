@@ -1,0 +1,154 @@
+html {
+    font-size: 14px;
+    background-color: transparent !important;
+    overflow: auto;
+}
+
+:root {
+    --bs-body-bg: transperent;
+}
+
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+body {
+    /*    background-image: url('../Graphics/StaticImages/wp9116466.jpg');
+    background-size: 100%;
+    object-fit: cover;*/
+}
+
+.accordion-button:not(.collapsed) {
+    color: #fff;
+    background-color: #182030;
+    box-shadow: inset 0 0px 0 rgba(0, 0, 0, 0);
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.accordion-button {
+    color: #fff;
+    background-color: #182030;
+    box-shadow: inset 0 0px 0 rgba(0, 0, 0, 0);
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+    .accordion-button:focus {
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+.ac-item {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.white-text {
+    color: #E4F3F3;
+    background-color: #182030;
+    border: solid 10px black;
+    border-radius: 10px;
+}
+
+.btn-with-image {
+    color: #E4F3F3;
+    background-color: #182030;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 2em;
+    padding-left: 2em;
+    border: none;
+    border-radius: 30px;
+}
+
+    .btn-with-image:focus {
+        box-shadow: none;
+        border-color: transparent;
+    }
+
+.div-with-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 3em;
+}
+
+.blue-div {
+    background-color: #182030;
+    border: none;
+    border-radius: 10px;
+    padding: 3%;
+    color: #b4c0c0;
+}
+
+.main-inputs {
+    background-color: #b4c0c0;
+    border: none;
+    border-radius: 10px;
+}
+
+    .main-inputs:focus {
+        background-color: #b4c0c0;
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
+.main-checkbox {
+    background-color: #b4c0c0;
+    border: none;
+    border-radius: 10px;
+}
+
+    .main-checkbox:focus {
+        background-color: #b4c0c0;
+        border: none;
+        border-radius: 10px;
+        box-shadow: none;
+    }
+
+.zoom-effect img {
+    transition: transform 0.3s ease;
+}
+
+    .zoom-effect img:hover {
+        transform: scale(1.1);
+    }
+
+.smooth-scroll {
+    scroll-behavior: smooth;
+}
+
+.smooth-bg {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
+    background: -o-linear-gradient(292.13deg, hsla(0, 0%, 100%, .06) 0, hsla(0, 0%, 100%, .024) 100%);
+    background: linear-gradient(157.87deg, hsla(0, 0%, 100%, .06), hsla(0, 0%, 100%, .024));
+    position: relative;
+}
+
+    .smooth-bg:before {
+        background: linear-gradient(157.87deg, hsla(0, 0%, 100%, .2), hsla(0, 0%, 100%, .02));
+        border-radius: 10px;
+        content: "";
+        inset: 0;
+        -webkit-mask: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff)) content-box, -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff));
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        padding: 1px;
+        position: absolute;
+        width: calc(100%);
+        z-index: -1;
+    }

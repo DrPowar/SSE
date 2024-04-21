@@ -1,0 +1,222 @@
+﻿@using System.Text.RegularExpressions
+@model SolarSystemEncyclopedia.ViewModels.IndexViewModel
+Init
+<div class="container-fluid accordion accordion-flush col-md-8 m-auto" id="accordionFlushExample">
+    @foreach (var item in Model.Stars)
+    {
+        <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
+            <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "") }")">
+                <button class="accordion-button collapsed smooth-bg" style="border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                    @item.Name
+                </button>
+            </h2>
+            <div id="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" class="accordion-collapse collapse"  aria-labelledby="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")" data-bs-parent="#@($"parent_{Regex.Replace(item.Name, @"\s+", "")}")">
+                <div class="accordion-body row row-cols-1 row-cols-sm-2 row-cols-md-3" style="color: #E4F3F3;">
+                    <div class="col-md-3">
+                        <img src="../Graphics/ObjectImages/@item.Name/@string.Concat(item.Name, "MainImage.png")" alt="Main Image" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="margin-left: 25%;">
+                            <div class="col-md-12 p-1">
+                                Luminosity: @item.Luminosity 
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Spectral class: @item.SpectralClass
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Temperature: @item.Temperature
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Density: @item.Density
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Mass: @item.Mass
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Radius: @item.Radius
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Surface area: @item.SurfaceArea
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Volume: @item.Volume
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 m-3" style="font-size: 24px;">
+                            Related Planets
+                        </div>
+                        <div class="col">
+                            <div class="row justify-content-start">
+                                @if (item.HasPlanets)
+                                {
+                                    @foreach (var planet in item.Planets)
+                                    {
+                                        <div class="col-auto zoom-effect">
+                                            <a href="#@($"scroll_target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")')">
+                                                <img src="../Graphics/ObjectImages/@planet.Name/@string.Concat(planet.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    }
+    @foreach (var item in Model.Planets)
+    {
+        <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
+            <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")">
+                <button class="accordion-button collapsed smooth-bg" style="border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                    @item.Name
+                </button>
+            </h2>
+            <div id="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")"  class="accordion-collapse collapse" aria-labelledby="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")" data-bs-parent="#@($"parent_{Regex.Replace(item.Name, @"\s+", "")}")">
+                a
+                <div class="accordion-body row row-cols-1 row-cols-sm-2 row-cols-md-3" style="color: #E4F3F3;">
+                    <div class="col-md-3">
+                        <img src="../Graphics/ObjectImages/@item.Name/@string.Concat(item.Name, "MainImage.png")" alt="Main Image" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="margin-left: 25%;">
+                            <div class="col-md-12 p-1">
+                                AVG temperature: @item.AverageTemperature
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Atmospheric pressure: @item.AtmosphericPressure
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Density: @item.Density
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Mass: @item.Mass
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Radius: @item.Radius
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Surface area: @item.SurfaceArea
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Volume: @item.Volume
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 m-3" style="font-size: 24px;">
+                            Related Moons
+                        </div>
+
+                        <div class="col">
+                            <div class="row justify-content-start">
+                                @if (item.HasMoon)
+                                {
+                                    @foreach (var moon in item.Moons)
+                                    {
+                                        <div class="col-auto zoom-effect">
+                                            <a href="#@($"scroll_target_{Regex.Replace(moon.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(moon.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(moon.Name, @"\s+", "")}")')">
+                                                <img src="../Graphics/ObjectImages/@moon.Name/@string.Concat(moon.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @foreach (var item in Model.Moons)
+    {
+        <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
+            <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")">
+                <button class="accordion-button collapsed smooth-bg" type="button" style="border-radius: 10px;" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                    @item.Name
+                </button>
+            </h2>
+            <div id="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" class="accordion-collapse collapse" aria-labelledby="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")" data-bs-parent="#@($"parent_{Regex.Replace(item.Name, @"\s+", "")}")">
+
+                <div class="accordion-body row row-cols-1 row-cols-sm-2 row-cols-md-3" style="color: #E4F3F3;">
+                    <div class="col-md-3">
+                        <img src="../Graphics/ObjectImages/@item.Name/@string.Concat(item.Name, "MainImage.png")" alt="Main Image" style="width: 100%;">
+                    </div>
+                    <div class="col-md-6">
+                        <p>
+                            @item.Description
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <div style="margin-left: 25%;">
+                            <div class="col-md-12 p-1">
+                                AVG temperature: @item.AverageTemperature
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Atmospheric pressure: @item.AtmosphericPressure
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Density: @item.Density
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Mass: @item.Mass
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Radius: @item.Radius
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Surface area: @item.SurfaceArea
+                            </div>
+                            <div class="col-md-12 p-1">
+                                Volume: @item.Volume
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 m-3" style="font-size: 24px;">
+                        Main Planet
+                    </div>
+                    
+                    <div class="col-md-1 m-1 zoom-effect">
+                        <a href="#@($"scroll_target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")')">
+                            <img src="../Graphics/ObjectImages/@item.MainPlanet.Name/@string.Concat(item.MainPlanet.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    function toggleAccordion(targetId) {
+        var targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            var accordionItems = document.querySelectorAll('.accordion-collapse');
+            accordionItems.forEach(function(item) {
+                if (item.id !== targetId) {
+                    var accordionInstance = new bootstrap.Collapse(item, { toggle: false });
+                }
+            });
+
+            var accordionInstance = new bootstrap.Collapse(targetElement, { toggle: true });
+
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>

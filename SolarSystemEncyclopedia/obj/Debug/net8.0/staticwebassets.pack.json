@@ -1,0 +1,349 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SolarSystemEncyclopedia.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SolarSystemEncyclopedia.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Callisto\\CallistoMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Callisto\\CallistoMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Deimos\\DeimosMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Deimos\\DeimosMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Earth\\EarthMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Earth\\EarthMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Enceladus\\EnceladusMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Enceladus\\EnceladusMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Europa\\EuropaMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Europa\\EuropaMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Ganymede\\GanymedeMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Ganymede\\GanymedeMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Io\\IoMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Io\\IoMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Jupiter\\JupiterMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Jupiter\\JupiterMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Mars\\MarsMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Mars\\MarsMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Moon\\MoonMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Moon\\MoonMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Phobos\\PhobosMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Phobos\\PhobosMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Proxima Centauri\\Proxima CentauriMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Proxima Centauri\\Proxima CentauriMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Saturn\\SaturnMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Saturn\\SaturnMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Sun\\SunMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Sun\\SunMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Titan\\TitanMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Titan\\TitanMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\ObjectImages\\Venus\\VenusMainImage.png",
+      "PackagePath": "staticwebassets\\Graphics\\ObjectImages\\Venus\\VenusMainImage.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\StaticImages\\moon.png",
+      "PackagePath": "staticwebassets\\Graphics\\StaticImages\\moon.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\StaticImages\\planet.png",
+      "PackagePath": "staticwebassets\\Graphics\\StaticImages\\planet.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\StaticImages\\star.png",
+      "PackagePath": "staticwebassets\\Graphics\\StaticImages\\star.png"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\Graphics\\StaticImages\\wp9116466.jpg",
+      "PackagePath": "staticwebassets\\Graphics\\StaticImages\\wp9116466.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\css\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Programming\\SSE\\SolarSystemEncyclopedia-main\\SolarSystemEncyclopedia\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SolarSystemEncyclopedia.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SolarSystemEncyclopedia.props",
+      "PackagePath": "build\\SolarSystemEncyclopedia.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SolarSystemEncyclopedia.props",
+      "PackagePath": "buildMultiTargeting\\SolarSystemEncyclopedia.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SolarSystemEncyclopedia.props",
+      "PackagePath": "buildTransitive\\SolarSystemEncyclopedia.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

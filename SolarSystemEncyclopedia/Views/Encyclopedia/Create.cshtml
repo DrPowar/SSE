@@ -1,0 +1,46 @@
+﻿
+<div class="container col-md-10 m-auto" style="width: auto;">
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary btn-with-image" onclick="sendObjectType('Star')">
+                <div class="div-with-image" style="background-image: url('../Graphics/StaticImages/star.png');"></div>
+            </button>
+            <button type="button" class="btn btn-secondary btn-with-image" onclick="sendObjectType('Planet')">
+                <div class="div-with-image" style="background-image: url('../Graphics/StaticImages/planet.png');"></div>
+            </button>
+            <button type="button" class="btn btn-secondary btn-with-image" onclick="sendObjectType('Moon')">
+                <div class="div-with-image" style="background-image: url('../Graphics/StaticImages/moon.png');"></div>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="partialContainer">
+    <!-- Тут буде відображатися частковий вигляд -->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function sendObjectType(objectType) {
+        var param = { objectType: objectType };
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Create", "Encyclopedia")',
+            data: { "json": JSON.stringify(param) },
+            dataType: "html",
+            success: function (partialView) {
+                $("#partialContainer").html(partialView);
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    }
+</script>
+
+
+
