@@ -5,33 +5,39 @@ using SolarSystemEncyclopedia.Models;
 using SolarSystemEncyclopedia.ViewModels;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
+using Elastic.Clients.Elasticsearch;
+using Elastic.Clients.Elasticsearch.Nodes;
+using System;
 
 namespace SolarSystemEncyclopedia.Controllers
 {
     public class Encyclopedia: Controller
     {
-
         private readonly SolarSystemContext _context;
         private readonly IWebHostEnvironment _appEnvironment;
+        private readonly ElasticsearchClient _elasticsearchClient;
 
-        public Encyclopedia(SolarSystemContext context, IWebHostEnvironment appEnvironment)
+        public Encyclopedia(SolarSystemContext context, IWebHostEnvironment appEnvironment, ElasticsearchClient elasticsearchClient)
         {
             _context = context;
             _appEnvironment = appEnvironment;
+            _elasticsearchClient = elasticsearchClient;
         }
-
-
 
         public async Task<IActionResult> Index()
         {
             var starsWithPlanets = _context.Star.Include(s => s.Planets).ToList();
-            var moons = await _context.Moon.ToListAsync(); // Якщо потрібно, завантажте також супутники
+            var moons = await _context.Moon.ToListAsync();
             var planets = starsWithPlanets.SelectMany(s => s.Planets).ToList();
+
 
             if (!starsWithPlanets.Any() && !moons.Any() && !planets.Any())
             {
                 return Problem("Something wrong with database or context!!!");
             }
+
+            var response = await _elasticsearchClient.GetAsync<Planet>(2, idx => idx.Index("planets_index"));
+
 
             IndexViewModel ivm = new IndexViewModel(moons, planets, starsWithPlanets);
 

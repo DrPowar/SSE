@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SolarSystemEncyclopedia.Models
 {
@@ -21,6 +22,7 @@ namespace SolarSystemEncyclopedia.Models
         [Column("MainStarId1")]
         public int MainStarId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("MainStarId")]
         public Star? MainStar { get; set; }
 

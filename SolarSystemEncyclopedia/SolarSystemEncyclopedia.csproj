@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Elastic.Clients.Elasticsearch" Version="8.13.10" />
+    <PackageReference Include="Elasticsearch.Net" Version="7.17.5" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="jquery-globalize" Version="1.4.2" />
     <PackageReference Include="LibSassBuilder" Version="3.0.0" />

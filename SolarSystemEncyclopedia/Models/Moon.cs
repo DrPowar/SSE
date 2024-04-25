@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SolarSystemEncyclopedia.Models
 {
@@ -15,6 +16,7 @@ namespace SolarSystemEncyclopedia.Models
         [Column("MainPlanetId")]
         public int MainPlanetId { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("MainPlanetId")]
         public Planet? MainPlanet { get; set; }
     }

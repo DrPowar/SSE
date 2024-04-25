@@ -1,6 +1,9 @@
+using Elastic.Clients.Elasticsearch;
+using Elastic.Transport;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using SolarSystemEncyclopedia.Data;
+using SolarSystemEncyclopedia.Models;
 using System.Globalization;
 
 namespace SolarSystemEncyclopedia
@@ -15,6 +18,20 @@ namespace SolarSystemEncyclopedia
                 options.UseMySql(builder.Configuration.GetConnectionString("SolarSystemContext"),
                     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SolarSystemContext"))));
 
+            //Elasticsearch config
+            var cloudId = builder.Configuration["Elasticsearch:CloudId"];
+            var apiKey = builder.Configuration["Elasticsearch:ApiKey"];
+
+            if (string.IsNullOrWhiteSpace(cloudId) || string.IsNullOrWhiteSpace(apiKey))
+            {
+                throw new ArgumentException("CloudId and ApiKey missed or incorrect.");
+            }
+
+            // Init Elasticsearch client
+            var elasticClient = new ElasticsearchClient(cloudId, new ApiKey(apiKey));
+
+            // Register client as singleton-service
+            builder.Services.AddSingleton(elasticClient);
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

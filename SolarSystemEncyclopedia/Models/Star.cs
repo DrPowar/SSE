@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SolarSystemEncyclopedia.Models
 {
@@ -14,6 +15,7 @@ namespace SolarSystemEncyclopedia.Models
 
         public bool HasPlanets { get; set; }
 
+        [JsonIgnore]
         public IEnumerable<Planet>? Planets { get; set; }
     }
 }
