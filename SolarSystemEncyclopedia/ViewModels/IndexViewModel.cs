@@ -18,5 +18,19 @@ namespace SolarSystemEncyclopedia.ViewModels
         public IEnumerable<Planet> Planets { get; set; }
         public IEnumerable<Star> Stars { get; set; }
         public IEnumerable<Moon> Moons { get; set; }
+
+        public bool AnyPlanets()
+        {
+            return (Planets.Any());
+        }
+        public bool AnyStars()
+        {
+            return (Stars.Any());
+        }
+        public bool AnyMoons()
+        {
+            return (Moons.Any());
+        }
+
     }
 }

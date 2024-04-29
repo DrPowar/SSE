@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Elastic.Clients.Elasticsearch;
 using Elastic.Clients.Elasticsearch.Nodes;
 using System;
+using Elastic.Clients.Elasticsearch.QueryDsl;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SolarSystemEncyclopedia.Controllers
 {
@@ -24,6 +26,7 @@ namespace SolarSystemEncyclopedia.Controllers
             _elasticsearchClient = elasticsearchClient;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var starsWithPlanets = _context.Star.Include(s => s.Planets).ToList();
@@ -36,13 +39,62 @@ namespace SolarSystemEncyclopedia.Controllers
                 return Problem("Something wrong with database or context!!!");
             }
 
-            var response = await _elasticsearchClient.GetAsync<Planet>(2, idx => idx.Index("planets_index"));
-
 
             IndexViewModel ivm = new IndexViewModel(moons, planets, starsWithPlanets);
 
             return View(ivm);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string searchTerm)
+        {
+
+            var planets = await _elasticsearchClient.SearchAsync<Planet>(s => s
+                .Index("planets_index")
+                .Query(q => q.Term(t => t.Field("name").Value(searchTerm.ToLower())))
+            );
+            var stars = await _elasticsearchClient.SearchAsync<Star>(s => s
+                .Index("stars_index")
+                .Query(q => q.Term(t => t.Field("name").Value(searchTerm.ToLower())))
+            );
+            var moons = await _elasticsearchClient.SearchAsync<Moon>(s => s
+                .Index("moons_index")
+                .Query(q => q.Term(t => t.Field("name").Value(searchTerm.ToLower())))
+            );
+
+            var stars_list = stars.IsValidResponse ? stars.Documents.ToList() : new List<Star>();
+            var planets_list = planets.IsValidResponse ? planets.Documents.ToList() : new List<Planet>();
+            var moons_list = moons.IsValidResponse ? moons.Documents.ToList() : new List<Moon>();
+
+            //Include planets to stars
+            foreach(var star in stars_list)
+            {
+                var starWithPlanets = await _context.Star.Include(s => s.Planets)
+                    .FirstOrDefaultAsync(s => s.Id == star.Id);
+
+                if (starWithPlanets != null)
+                {
+                    star.Planets = starWithPlanets.Planets;
+                }
+            }
+
+            //Include planet to moon
+            foreach (var moon in moons_list)
+            {
+                var moonsWithPlanet = await _context.Moon.Include(m => m.MainPlanet)
+                    .FirstOrDefaultAsync(m => m.Id == moon.Id);
+
+                if (moonsWithPlanet != null)
+                {
+                    moon.MainPlanet = moonsWithPlanet.MainPlanet;
+                }
+            }
+
+            IndexViewModel ivm = new IndexViewModel(moons_list, planets_list, stars_list);
+
+            return PartialView("_IndexPartial", ivm);
+        }
+        
 
 
 
