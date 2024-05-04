@@ -8,10 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Elastic.Clients.Elasticsearch;
 using Elastic.Clients.Elasticsearch.Nodes;
 using System;
-using Elastic.Clients.Elasticsearch.QueryDsl;
-using static System.Net.Mime.MediaTypeNames;
 using SolarSystemEncyclopedia.Algorithms;
-using Elastic.Clients.Elasticsearch.IndexManagement;
+using System.Reflection;
+
 
 namespace SolarSystemEncyclopedia.Controllers
 {
@@ -19,13 +18,11 @@ namespace SolarSystemEncyclopedia.Controllers
     {
         private readonly SolarSystemContext _context;
         private readonly IWebHostEnvironment _appEnvironment;
-        private readonly ElasticsearchClient _elasticsearchClient;
 
-        public Encyclopedia(SolarSystemContext context, IWebHostEnvironment appEnvironment, ElasticsearchClient elasticsearchClient)
+        public Encyclopedia(SolarSystemContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
-            _elasticsearchClient = elasticsearchClient;
         }
 
         [HttpGet]
@@ -54,45 +51,25 @@ namespace SolarSystemEncyclopedia.Controllers
             List<Star> stars = new List<Star>();
             List<Moon> moons = new List<Moon>();
 
-            string[] splitSearchTerm = SearchAlgorithms.SplitSearchString(searchTerm);
 
-            ComplexSearch(splitSearchTerm);
 
             if (searchTerm != null)
             {
-
-
-                stars = await _context.Star
-                    .Include(p => p.Planets)
-                    .Where(p =>
-                        p.Name.ToLower().Contains(searchTerm.ToLower()) ||
-                        p.Description.ToLower().Contains(searchTerm.ToLower()))
-                    .ToListAsync();
-                moons = await _context.Moon
-                    .Where(p =>
-                        p.Name.ToLower().Contains(searchTerm.ToLower()) ||
-                        p.Description.ToLower().Contains(searchTerm.ToLower()))
-                    .ToListAsync();
-                planets = await _context.Planet
-                    .Include(m => m.Moons)
-                    .Where(p =>
-                        p.Name.ToLower().Contains(searchTerm.ToLower()) ||
-                        p.Description.ToLower().Contains(searchTerm.ToLower()))
-                    .ToListAsync();
+                string[] splitSearchTerm = SearchAlgorithms.SplitSearchString(searchTerm);
+                IndexViewModel ivm2 = ComplexSearch(splitSearchTerm);
+                return PartialView("_IndexPartial", ivm2);
             }
             else
             {
                 stars = await _context.Star.Include(p => p.Planets).ToListAsync();
                 moons = await _context.Moon.ToListAsync();
                 planets = stars.SelectMany(s => s.Planets).ToList();
+
+                IndexViewModel ivm = new IndexViewModel(moons, planets, stars);
+
+                return PartialView("_IndexPartial", ivm);
             }
-
-            IndexViewModel ivm = new IndexViewModel(moons, planets, stars);
-
-            return PartialView("_IndexPartial", ivm);
         }
-
-
 
 
         [HttpGet]
@@ -364,32 +341,116 @@ namespace SolarSystemEncyclopedia.Controllers
 
         public IndexViewModel ComplexSearch(string[] splitSearchTerm)
         {
+            IndexViewModel indexViewModel = new IndexViewModel();
+
             foreach (var searchTerm in splitSearchTerm)
             {
-                FilterObjects(searchTerm);
+                indexViewModel = FilterObjects(searchTerm, indexViewModel).Result;
             }
 
-
-            return new IndexViewModel();
+            return indexViewModel;
         }
 
-        public async Task<IndexViewModel> FilterObjects(string filter)
+        public async Task<IndexViewModel> FilterObjects(string filter, IndexViewModel collection)
         {
-            var (field, operatorSymbol, value) = SearchAlgorithms.ParseFilter(filter);
+            string modelTypeFilter = SearchAlgorithms.ModelTypeFilter(filter);
 
-            IndexViewModel viewModel = new IndexViewModel();
+            if (SearchAlgorithms.ModelTypeFilter(modelTypeFilter) != "")
+            {
+                if(modelTypeFilter == "Star")
+                {
+                    var starsModelFilter = await _context.Star.Include(s => s.Planets).ToListAsync();
+                    IndexViewModel viewModel = new IndexViewModel(new List<Moon>(), new List<Planet>(), starsModelFilter);
+                    return viewModel;
+                }
+                else if(modelTypeFilter == "Planet")
+                {
+                    var planetModelFilter = await _context.Planet.Include(s => s.Moons).ToListAsync();
+                    IndexViewModel viewModel = new IndexViewModel(new List<Moon>(), planetModelFilter, new List<Star>());
+                    return viewModel;
+                }
+                else
+                {
+                    var moonModelFilter = await _context.Moon.ToListAsync();
+                    IndexViewModel viewModel = new IndexViewModel(moonModelFilter, new List<Planet>(), new List<Star>());
+                    return viewModel;
+                }
+            }
+
+            var (field, operatorSymbol, value) = SearchAlgorithms.ParseFilter(filter);
 
             var stars = _context.Star.Include(s => s.Planets).ToList();
             var moons = await _context.Moon.ToListAsync();
             var planets = stars.SelectMany(s => s.Planets).ToList();
 
-            if (true)
+            if (collection.Stars != null || collection.Planets != null || collection.Moons != null) //Uses if we already have some collection from searchTerm
+            {
+                var (targetValue, isExponentTargetValue) = SearchAlgorithms.ParseScientificNotation(value);
+
+                stars = collection.Stars
+                .Where(s =>
+                {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
+                    var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
+                    return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
+                })
+                .ToList();
+
+                planets = collection.Planets
+                .Where(s =>
+                {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
+                    var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
+                    return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
+                })
+
+                .ToList();
+
+                moons = collection.Moons
+                .Where(s =>
+                {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
+                    var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
+                    return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
+                })
+                .ToList();
+
+                IndexViewModel viewModel = new IndexViewModel(moons, planets, stars);
+
+                return viewModel;
+            }
+            else //Uses if we process collection with first searchTerm
             {
                 var (targetValue, isExponentTargetValue) = SearchAlgorithms.ParseScientificNotation(value);
 
                 stars = stars
                 .Where(s =>
                 {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
                     var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
                     return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
                 })
@@ -398,6 +459,13 @@ namespace SolarSystemEncyclopedia.Controllers
                 planets = planets
                 .Where(s =>
                 {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
                     var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
                     return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
                 })
@@ -407,10 +475,19 @@ namespace SolarSystemEncyclopedia.Controllers
                 moons = moons
                 .Where(s =>
                 {
+                    PropertyInfo propertyInfo = s.GetType().GetProperty(field);
+
+                    if (propertyInfo == null)
+                    {
+                        return false;
+                    }
+
                     var (parsedField, isExponentParsedField) = SearchAlgorithms.ParseScientificNotation(s.GetType().GetProperty(field).GetValue(s).ToString());
                     return SearchAlgorithms.Compare(parsedField, operatorSymbol, targetValue, isExponentTargetValue, isExponentParsedField);
                 })
                 .ToList();
+
+                IndexViewModel viewModel = new IndexViewModel(moons, planets, stars);
 
                 return viewModel;
             }

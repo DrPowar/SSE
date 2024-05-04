@@ -86,5 +86,21 @@ namespace SolarSystemEncyclopedia.Algorithms
             }
         }
 
+        public static string ModelTypeFilter(string filter)
+        {
+            filter = filter.Trim(';');
+            switch (filter)
+            {
+                case "Star":
+                    return "Star";
+                case "Planet":
+                    return "Planet";
+                case "Moon":
+                    return "Moon";
+                default:
+                    return "";
+            }
+
+        }
     }
 }
