@@ -18,18 +18,20 @@
     <header class="header-scroll">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3" style="background-color: #212121">
             <div class="container-fluid">
-                <a class="navbar-brand" style="color: white" asp-area="" asp-controller="Encyclopedia" asp-action="Index">SolarSystemEncyclopedia</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Index">
+                    <div class="row">
+                        <div class="col-auto">
+                            <img src="../Graphics/StaticImages/solarSystem.png" alt="Update" style="height: 60px; margin: -10%">
+                        </div>
+                        <div class="col-auto align-self-center">
+                            <h5 style="color: white;">Solar System Encyclopedia</h5>
+                        </div>
+                    </div>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Index">Home</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>

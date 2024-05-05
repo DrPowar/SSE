@@ -9,6 +9,7 @@
             <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
                 <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "") }")">
                     <button class="accordion-button collapsed smooth-bg" style="border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                        <img src="../Graphics/StaticImages/starWhite.png" alt="hint" style="height: 32px; width: 32px; margin-right: 5px;">
                         @item.Name
                     </button>
                 </h2>
@@ -50,31 +51,52 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="col-md-12 m-3" style="font-size: 24px;">
-                                Related Planets
-                            </div>
-                            <div class="col">
-                                <div class="row justify-content-start">
-                                    @if (item.HasPlanets)
-                                    {
-                                        @foreach (var planet in item.Planets)
+                            <div class="col-auto mr-auto">
+                                <div class="col-md-12 m-3" style="font-size: 24px;">
+                                    Related Planets
+                                </div>
+                                <div class="col">
+                                    <div class="row justify-content-start">
+                                        @if (item.HasPlanets)
                                         {
-                                            <div class="col-auto zoom-effect">
-                                                <a href="#@($"scroll_target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")')">
-                                                    <img src="../Graphics/ObjectImages/@planet.Name/@string.Concat(planet.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
-                                                </a>
-                                            </div>
+                                            @foreach (var planet in item.Planets)
+                                            {
+                                                <div class="col-auto zoom-effect">
+                                                    <a href="#@($"scroll_target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(planet.Name, @"\s+", "")}")')">
+                                                        <img src="../Graphics/ObjectImages/@planet.Name/@string.Concat(planet.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
+                                                    </a>
+                                                </div>
+                                            }
                                         }
-                                    }
+                                    </div>
                                 </div>
                             </div>
+
 
                         </div>
 
 
                     </div>
+                    <div class="container-fluid" style="position: relative;">
+                        <div style="position: absolute; bottom: 0; right: 0; margin: 30px;">
+                            <div class="row">
+                                <div class="col-auto">
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Update" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/update.png" class="image-zoom" alt="Update" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Delete" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/delete.png" class="image-zoom" alt="Delete" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         }
     }
@@ -85,11 +107,12 @@
             <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
                 <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")">
                     <button class="accordion-button collapsed smooth-bg" style="border-radius: 10px;" type="button" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                        <img src="../Graphics/StaticImages/planetWhite.png" alt="hint" style="height: 32px; width: 32px; margin-right: 5px;">
                         @item.Name
                     </button>
                 </h2>
                 <div id="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" class="accordion-collapse collapse" aria-labelledby="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")" data-bs-parent="#@($"parent_{Regex.Replace(item.Name, @"\s+", "")}")">
-                    a
+
                     <div class="accordion-body row row-cols-1 row-cols-sm-2 row-cols-md-3" style="color: #E4F3F3;">
                         <div class="col-md-3">
                             <img src="../Graphics/ObjectImages/@item.Name/@string.Concat(item.Name, "MainImage.png")" alt="Main Image" style="width: 100%;">
@@ -146,6 +169,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container-fluid" style="position: relative;">
+                        <div style="position: absolute; bottom: 0; right: 0; margin: 30px;">
+                            <div class="row">
+                                <div class="col-auto">
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Update" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/update.png" class="image-zoom" alt="Update" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Delete" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/delete.png" class="image-zoom" alt="Delete" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         }
@@ -157,6 +196,7 @@
             <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="@($"scroll_target_{Regex.Replace(item.Name, @"\s+", "")}")">
                 <h2 class="accordion-header" id="@($"header_{Regex.Replace(item.Name, @"\s+", "")}")">
                     <button class="accordion-button collapsed smooth-bg" type="button" style="border-radius: 10px;" data-bs-toggle="collapse" data-bs-target="#@($"target_{Regex.Replace(item.Name, @"\s+", "")}")" aria-expanded="false" aria-controls="@($"target_{Regex.Replace(item.Name, @"\s+", "")}")">
+                        <img src="../Graphics/StaticImages/moonWhite.png" alt="hint" style="height: 32px; width: 32px; margin-right: 5px;">
                         @item.Name
                     </button>
                 </h2>
@@ -204,6 +244,22 @@
                             <a href="#@($"scroll_target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")" data-bs-target="#@($"target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")" data-bs-toggle="collapse" onclick="toggleAccordion('@($"target_{Regex.Replace(item.MainPlanet.Name, @"\s+", "")}")')">
                                 <img src="../Graphics/ObjectImages/@item.MainPlanet.Name/@string.Concat(item.MainPlanet.Name, "MainImage.png")" alt="Main Image" style="width: 10vh; height: auto;">
                             </a>
+                        </div>
+                    </div>
+                    <div class="container-fluid" style="position: relative;">
+                        <div style="position: absolute; bottom: 0; right: 0; margin: 30px;">
+                            <div class="row">
+                                <div class="col-auto">
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Update" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/update.png" class="image-zoom" alt="Update" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Encyclopedia" asp-action="Delete" asp-route-id="@item.Id">
+                                        <img src="../Graphics/StaticImages/delete.png" class="image-zoom" alt="Delete" style="height: 32px; width: 32px; margin-right: 5px;">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

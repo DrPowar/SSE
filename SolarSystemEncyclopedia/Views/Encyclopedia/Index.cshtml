@@ -1,10 +1,41 @@
 ﻿@using System.Text.RegularExpressions
 @model SolarSystemEncyclopedia.ViewModels.IndexViewModel
 
-<form id="search-form" class="d-flex justify-content-center my-3">
-    <input type="text" id="search-input" class="form-control" placeholder="Search..." />
-    <button type="button" id="search-button" class="btn btn-primary ms-2">Search</button>
-</form>
+
+<div class="container text-center" style="margin-top: 2%; margin-bottom: 2%">
+    <h1 style="color: #E4F3F3;">SOLAR SYSTEM ENCYCLOPEDIA</h1>
+</div>
+
+
+<div class="container-fluid accordion accordion-flush col-md-6 m-auto" id="accordionFlushExample">
+    <div class="accordion-item ac-item p-2 smooth-scroll smooth-bg" style="border-radius: 10px;" id="scrollTargetId">
+        <h2 class="accordion-header" id="headerId">
+            <div class="container-fluid">
+                <div id="id1">
+                    <form id="search-form" class="d-flex justify-content-center">
+                        <input type="text" id="search-input" class="form-control accordion-button collapsed smooth-bg" style="border-radius: 10px;" />
+                        <button type="button" id="search-button" class="btn hint-button collapsed smooth-bg ms-2" style="border-radius: 10px;">Search</button>
+                    </form>
+                </div>
+                <div id="id2">
+                    <button type="button" class="btn w-100 hint-button collapsed smooth-bg"
+                            style="border-radius: 10px;"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#InputBsTargetId"
+                            aria-expanded="false"
+                            aria-controls="rOFL">
+                        <img src="../Graphics/StaticImages/downArrow.png" alt="hint" style="height: 15px; width: 15px;">
+                    </button>
+                </div>
+            </div>
+        </h2>
+        <div id="InputBsTargetId" class="accordion-collapse collapse" aria-labelledby="headerId" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body row row-cols-1 row-cols-sm-2 row-cols-md-3" style="color: #E4F3F3;">
+                Content here...
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div id="partial-view-container">
@@ -33,3 +64,20 @@
     });
 </script>
 
+<script>
+    function toggleAccordion(targetId) {
+        var targetElement = document.getElementById(targetId);
+        if (targetElement) {
+            var accordionItems = document.querySelectorAll('.accordion-collapse');
+            accordionItems.forEach(function (item) {
+                if (item.id !== targetId) {
+                    var accordionInstance = new bootstrap.Collapse(item, { toggle: false });
+                }
+            });
+
+            var accordionInstance = new bootstrap.Collapse(targetElement, { toggle: true });
+
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
