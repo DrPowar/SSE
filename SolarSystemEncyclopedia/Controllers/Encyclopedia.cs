@@ -5,8 +5,6 @@ using SolarSystemEncyclopedia.Models;
 using SolarSystemEncyclopedia.ViewModels;
 using System.Numerics;
 using Microsoft.EntityFrameworkCore;
-using Elastic.Clients.Elasticsearch;
-using Elastic.Clients.Elasticsearch.Nodes;
 using System;
 using SolarSystemEncyclopedia.Algorithms;
 using System.Reflection;
@@ -353,38 +351,23 @@ namespace SolarSystemEncyclopedia.Controllers
 
         public async Task<IndexViewModel> FilterObjects(string filter, IndexViewModel collection)
         {
-            string modelTypeFilter = SearchAlgorithms.ModelTypeFilter(filter);
-
-            if (SearchAlgorithms.ModelTypeFilter(modelTypeFilter) != "")
-            {
-                if(modelTypeFilter == "Star")
-                {
-                    var starsModelFilter = await _context.Star.Include(s => s.Planets).ToListAsync();
-                    IndexViewModel viewModel = new IndexViewModel(new List<Moon>(), new List<Planet>(), starsModelFilter);
-                    return viewModel;
-                }
-                else if(modelTypeFilter == "Planet")
-                {
-                    var planetModelFilter = await _context.Planet.Include(s => s.Moons).ToListAsync();
-                    IndexViewModel viewModel = new IndexViewModel(new List<Moon>(), planetModelFilter, new List<Star>());
-                    return viewModel;
-                }
-                else
-                {
-                    var moonModelFilter = await _context.Moon.ToListAsync();
-                    IndexViewModel viewModel = new IndexViewModel(moonModelFilter, new List<Planet>(), new List<Star>());
-                    return viewModel;
-                }
-            }
-
-            var (field, operatorSymbol, value) = SearchAlgorithms.ParseFilter(filter);
 
             var stars = _context.Star.Include(s => s.Planets).ToList();
             var moons = await _context.Moon.ToListAsync();
             var planets = stars.SelectMany(s => s.Planets).ToList();
 
+
             if (collection.Stars != null || collection.Planets != null || collection.Moons != null) //Uses if we already have some collection from searchTerm
             {
+                string modelTypeFilter = SearchAlgorithms.ModelTypeFilter(filter);
+
+                if(modelTypeFilter != "")
+                {
+                    return CollectionModelBasedSearch(modelTypeFilter, collection);
+                }
+
+                var (field, operatorSymbol, value) = SearchAlgorithms.ParseFilter(filter);
+
                 var (targetValue, isExponentTargetValue) = SearchAlgorithms.ParseScientificNotation(value);
 
                 stars = collection.Stars
@@ -439,6 +422,16 @@ namespace SolarSystemEncyclopedia.Controllers
             }
             else //Uses if we process collection with first searchTerm
             {
+
+                string modelTypeFilter = SearchAlgorithms.ModelTypeFilter(filter);
+
+                if (modelTypeFilter != "")
+                {
+                    return DBModelBasedSearch(modelTypeFilter);
+                }
+
+                var (field, operatorSymbol, value) = SearchAlgorithms.ParseFilter(filter);
+
                 var (targetValue, isExponentTargetValue) = SearchAlgorithms.ParseScientificNotation(value);
 
                 stars = stars
@@ -491,6 +484,60 @@ namespace SolarSystemEncyclopedia.Controllers
 
                 return viewModel;
             }
+
         }
+
+        public IndexViewModel CollectionModelBasedSearch(string filter, IndexViewModel collection)
+        {
+            if (filter == "Star")
+            {
+                var starsModelFilter = collection.Stars.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(new List<Moon>(), new List<Planet>(), starsModelFilter);
+                return modelBaseVM;
+            }
+            else if (filter == "Planet")
+            {
+                var planetModelFilter = collection.Planets.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(new List<Moon>(), planetModelFilter, new List<Star>());
+                return modelBaseVM;
+            }
+            else if (filter == "Moon")
+            {
+                var moonModelFilter = collection.Moons.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(moonModelFilter, new List<Planet>(), new List<Star>());
+                return modelBaseVM;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public IndexViewModel DBModelBasedSearch(string filter)
+        {
+            if (filter == "Star")
+            {
+                var starsModelFilter = _context.Star.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(new List<Moon>(), new List<Planet>(), starsModelFilter);
+                return modelBaseVM;
+            }
+            else if (filter == "Planet")
+            {
+                var planetModelFilter = _context.Planet.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(new List<Moon>(), planetModelFilter, new List<Star>());
+                return modelBaseVM;
+            }
+            else if (filter == "Moon")
+            {
+                var moonModelFilter = _context.Moon.ToList();
+                IndexViewModel modelBaseVM = new IndexViewModel(moonModelFilter, new List<Planet>(), new List<Star>());
+                return modelBaseVM;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
     }
 }

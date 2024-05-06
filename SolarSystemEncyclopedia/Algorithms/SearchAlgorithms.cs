@@ -93,9 +93,15 @@ namespace SolarSystemEncyclopedia.Algorithms
             {
                 case "Star":
                     return "Star";
+                case "star":
+                    return "Star";
                 case "Planet":
                     return "Planet";
+                case "planet":
+                    return "Planet";
                 case "Moon":
+                    return "Moon";
+                case "moon":
                     return "Moon";
                 default:
                     return "";
